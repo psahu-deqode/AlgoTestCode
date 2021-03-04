@@ -4,14 +4,24 @@ from itertools import groupby
 
 # function for string comprehension
 def compress(string):
-    # grouped elements by the help of keys and found the count
-    count_list = [key + str(len(list(group))) for key, group in groupby(string)]
-    new_str = ''
-    for i in count_list:
-        if int(i[1]) == 1:
-            i = i[0]
-        new_str += i
-    return new_str
+    # initialization
+    new_str = string[0]
+    result = []
+    count = 1
+    for c in string[1:]:
+        if c == new_str:
+            count += 1
+        else:
+            result.append(new_str + str(count))
+            count = 1
+            new_str = c
+    # condition to ignore appending 1 if the string is not compressed
+    if count == 1:
+        result.append(new_str)
+    else:
+        result.append(new_str + str(count))
+    # list to string conversion
+    return ''.join(result)
 
 
 # Take the string as user input
