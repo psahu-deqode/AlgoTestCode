@@ -28,4 +28,4 @@ def compress(input_str):
     return result
 
 
-print(compress("aaaabbbccddddddee"))
+print(compress(""))
