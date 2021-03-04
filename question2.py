@@ -23,5 +23,7 @@ def identify_router(node_list):
     return node
 
 
-node_list = input('Please enter the router input graph of nodes separated by "->" ').split('->')
+node_list = input(
+    'Please enter the router input graph of nodes separated by "->" '
+).split("->")
 print(identify_router(node_list))
